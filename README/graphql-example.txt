@@ -1,0 +1,54 @@
+// createProduct
+mutation {
+  createProduct (record: {
+    name: "Pepsi"
+    description: "Pepsi size L"
+    price: 100
+    category: Food
+  }) {
+    recordId
+  }
+}
+
+// productPagination
+{
+  productPagination {
+    items {
+      _id
+      name
+      description
+      price
+      category
+    }
+  }
+}
+
+// orderPagination
+{
+  orderPagination {
+    items {
+      name
+      address
+      total
+      orderItems {
+        name
+        category
+      }
+    }
+  }
+}
+
+// createOrder
+mutation {
+  createOrder(record: {
+      name: "Bob"
+      address: "1/23"
+      products: [
+        { productId: "5f40d5d03ef1d7001e4f6120", price: 100 }
+      ]
+      total: 100
+    }
+  ) {
+    recordId
+  }
+}
